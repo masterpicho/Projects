@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Calendario de películas</title>
+		<script src="phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script>
+	var numero=0;
+	var mes="Noviembre 2016";
+	var pelicula1= "La bruja de blair 4 de Noviembre";
+	var pelicula2="100 metros 4 de Noviembre";
+	var pelicula3= "El desierto 11 de Noviembre";
+	var pelicula4= "El último acto 4 de Noviembre";
+	var pelicula5= "Marea negra 25 de Noviembre";
+	document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady(){
+		document.getElementById("info").innerHTML=""+mes;
+		document.getElementById("peliculaUno").innerHTML=""+pelicula1;
+		document.getElementById("peliculaDos").innerHTML=""+pelicula2;
+		document.getElementById("peliculaTres").innerHTML=""+pelicula3;
+		document.getElementById("peliculaCuatro").innerHTML=""+pelicula4;
+		document.getElementById("peliculaCinco").innerHTML=""+pelicula5;
+		}
+		function avanzarMes(){
+		switch(numero){
+		//case 0: mes="Noviembre 2016"; pelicula1="La bruja de blair 4 de Noviembre"; pelicula2= "100 metros 4 de Noviembre"; pelicula3="El desierto 11 de Noviembre"; pelicula4="El último acto 4 de Noviembre"; pelicula5="Marea negra 25 de Noviembre"; onDeviceReady(); numero+=1; break;
+		case 0: mes="Diciembre 2016"; pelicula1="Animales Nocturnos 2 de Diciembre"; pelicula2= "El perdido 2 de Diciembre"; pelicula3="El faro de las orcas 16 de Diciembre"; pelicula4="Assassin's Creed 23 de Diciembre"; pelicula5="Passengers 30 de Diciembre"; onDeviceReady(); numero+=1; break;
+		case 1: mes="Enero 2017"; pelicula1="Monster Trucks 4 de Enero"; pelicula2= "Solo el fin del mundo 6 de Enero"; pelicula3="Underworld: Guerras de Sangre 13 de Enero"; pelicula4="Los del túnel 20 de Enero"; pelicula5="The Last Face 27 de Enero"; onDeviceReady(); numero+=1; break;
+		case 2: mes="Febrero 2017"; pelicula1="Geostorm 3D 3 de Febrero"; pelicula2= "Resident Evil: El capítulo final 3 de Febrero"; pelicula3="Cincuenta Sombras más oscuras 10 de Febrero"; pelicula4="Lego Batman: La película 10 de Febrero"; pelicula5="Fences 26 de Febrero"; onDeviceReady(); numero+=1; break;
+		case 3: mes="Marzo 2017"; pelicula1="El guardián invisible 3 de Marzo"; pelicula2= "Logan 3 de Marzo"; pelicula3="Kong: La Isla Calavera 10 de Marzo"; pelicula4="La Bella y la Bestia 17 de Marzo"; pelicula5="Los Pitufos: La aldea Escondida 31 de Marzo"; onDeviceReady(); numero+=1; break;
+		case 4: mes="Abril 2017"; pelicula1="El bebé jefazo 4 de Abril"; pelicula2= "Un Golpe con Estilo 12 de Abril"; pelicula3="Fast 8 17 de Abril"; pelicula4=" "; pelicula5=" "; onDeviceReady(); numero+=1; break;
+		case 5: mes="Mayo 2017"; pelicula1="John Wick. Pacto de sangre (Día por confirmar)"; pelicula2= "Piratas del Caribe: La Venganza de Salazar 1 de Mayo"; pelicula3="Guardianes de la Galaxia Vol.2 5 de Mayo"; pelicula4="Life (Vida) 19 de Mayo"; pelicula5="Star Wars: Episode VIII 26 de Mayo"; numero+=1; onDeviceReady(); break;
+		}
+		}
+		
+		function retrocederMes(){
+		switch(numero){
+		case 6: mes="Abril 2017"; pelicula1="El bebé jefazo 4 de Abril"; pelicula2= "Un Golpe con Estilo 12 de Abril"; pelicula3="Fast 8 17 de Abril"; pelicula4=" "; pelicula5=" "; onDeviceReady(); numero-=1; break;
+		case 5: mes="Marzo 2017"; pelicula1="El guardián invisible 3 de Marzo"; pelicula2= "Logan 3 de Marzo"; pelicula3="Kong: La Isla Calavera 10 de Marzo"; pelicula4="La Bella y la Bestia 17 de Marzo"; pelicula5="Los Pitufos: La aldea Escondida 31 de Marzo"; onDeviceReady(); numero-=1; break;
+		case 4: mes="Febrero 2017"; pelicula1="Geostorm 3D 3 de Febrero"; pelicula2= "Resident Evil: El capítulo final 3 de Febrero"; pelicula3="Cincuenta Sombras más oscuras 10 de Febrero"; pelicula4="Lego Batman: La película 10 de Febrero"; pelicula5="Fences 26 de Febrero"; onDeviceReady(); numero-=1; break;
+		case 3: mes="Enero 2017"; pelicula1="Monster Trucks 4 de Enero"; pelicula2= "Solo el fin del mundo 6 de Enero"; pelicula3="Underworld: Guerras de Sangre 13 de Enero"; pelicula4="Los del túnel 20 de Enero"; pelicula5="The Last Face 27 de Enero"; onDeviceReady(); numero-=1; break;
+		case 2: mes="Diciembre 2016"; pelicula1="Animales Nocturnos 2 de Diciembre"; pelicula2= "El perdido 2 de Diciembre"; pelicula3="El faro de las orcas 16 de Diciembre"; pelicula4="Assassin's Creed 23 de Diciembre"; pelicula5="Passengers 30 de Diciembre"; onDeviceReady(); numero-=1; break;
+		case 1: mes="Noviembre 2016"; pelicula1="La bruja de blair 4 de Noviembre"; pelicula2= "100 metros 4 de Noviembre"; pelicula3="El desierto 11 de Noviembre"; pelicula4="El último acto 4 de Noviembre"; pelicula5="Marea negra 25 de Noviembre"; onDeviceReady(); numero-=1; break;
+		
+		}
+		}
+		
+	</script>
+</head>
+
+<body>
+        <h1 id="info"></h1>
+		<ul>
+			<li id=peliculaUno></li>
+			<li id=peliculaDos></li>
+			<li id=peliculaTres></li>
+			<li id=peliculaCuatro></li>
+			<li id=peliculaCinco></li>
+		</ul>
+		<button onclick="avanzarMes()">Siguiente Mes</button>
+		<button onclick="retrocederMes()">Mes Anterior</button>
+</body>
+
+</html>
